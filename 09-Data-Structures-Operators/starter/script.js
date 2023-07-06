@@ -82,6 +82,7 @@ const restaurant = {
 
 //* We created another method to PASS AN OBJECT into the function as an argument with the 4 arguments..
 // The function then immediatelly destructures the object to successfully console log the input.
+/* 
 restaurant.orderDelivery({
   time: '22:30',
   address: 'vai del sole, 21',
@@ -94,7 +95,12 @@ restaurant.orderDelivery({
   address: 'vai del sole, 21',
   starterIndex: 1,
 });
-/* 
+
+
+//! ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ - SECTION DIVIDER
+//! ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ - SECTION DIVIDER
+//! ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ - SECTION DIVIDER
+
 //? Destructuring arrays.
 //? Destructuring arrays.
 //? Destructuring arrays.
@@ -397,6 +403,10 @@ const { sat, ...weekdays } = restaurant.openingHours;
 console.log(sat);
 console.log(weekdays);
 
+//! ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ - SECTION DIVIDER
+//! ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ - SECTION DIVIDER
+//! ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ - SECTION DIVIDER
+
 //? FUNCTIONS
 //? FUNCTIONS
 //? FUNCTIONS
@@ -506,6 +516,11 @@ restaurant.orderPizza('mushrooms');
 //   return output;
 // };
 // nestArrInObj(obj5);
+
+//! ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ - SECTION DIVIDER
+//! ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ - SECTION DIVIDER
+//! ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ - SECTION DIVIDER
+
 //? Short Circuiting (&& and ||)
 //? Short Circuiting (&& and ||)
 //? Short Circuiting (&& and ||)
@@ -562,11 +577,15 @@ restaurant.orderPizza && restaurant.orderPizza('mushrooms', 'spinach');
 
 // AND && returns the 1st falsy value, or the last one if all of them are truthy.
 
+//! ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ - SECTION DIVIDER
+//! ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ - SECTION DIVIDER
+//! ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ - SECTION DIVIDER
+
 //? NULLISH COALESCING OPERATOR.
 //? NULLISH COALESCING OPERATOR.
 //? NULLISH COALESCING OPERATOR.
 
-// Returns the 2nd value, only if the 1st value is
+// Returns the 1st value only if it is null or undefined
 
 restaurant.numGuests = 0;
 const guests3 = restaurant.numGuests || 10;
@@ -580,10 +599,14 @@ guests1;
 const guestCorrect = restaurant.numGuests ?? 10;
 guestCorrect;
 
+//! ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ - SECTION DIVIDER
+//! ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ - SECTION DIVIDER
+//! ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ - SECTION DIVIDER
+
 //? LOGICAL ASSIGNMENT OPERATORS
 //? LOGICAL ASSIGNMENT OPERATORS
 //? LOGICAL ASSIGNMENT OPERATORS
-*/
+
 // Introduced in ES 2021.
 
 const rest1 = {
@@ -649,6 +672,10 @@ rest3.owner &&= '<ANNONYMOUS>';
 console.log(rest4); // truthy, so replaced with '<ANNONYMOUS>'
 console.log(rest3); // Falsy, so nothing happened
 
+//! ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ - SECTION DIVIDER
+//! ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ - SECTION DIVIDER
+//! ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ - SECTION DIVIDER
+
 //? Looping Arrays: The for of loop
 //? Looping Arrays: The for of loop
 //? Looping Arrays: The for of loop
@@ -676,6 +703,10 @@ for (const [i, el] of menu.entries()) {
   console.log(`${i + 1}: ${el}`);
 }
 
+//! ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ - SECTION DIVIDER
+//! ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ - SECTION DIVIDER
+//! ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ - SECTION DIVIDER
+
 //? Enhanced Object Literals
 //? Enhanced Object Literals
 //? Enhanced Object Literals
@@ -697,6 +728,10 @@ for (const [i, el] of menu.entries()) {
 // The new way, 'order() {}'
 // order(starterIndex, mainIndex) {
 //   return [this.starterMenu[starterIndex], this.mainMenu[mainIndex]]},
+
+//! ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ - SECTION DIVIDER
+//! ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ - SECTION DIVIDER
+//! ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ - SECTION DIVIDER
 
 //? Optional Chaining
 //? Optional Chaining
@@ -755,6 +790,10 @@ console.log(users[4]?.name ?? 'User Array empty');
 if (users.length >= 0) console.log(users[0].name);
 else console.log('user array empty');
 
+//! ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ - SECTION DIVIDER
+//! ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ - SECTION DIVIDER
+//! ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ - SECTION DIVIDER
+
 //? Looping Objects: Object Keys/Names, Object Values, and Entries
 //? Looping Objects: Object Keys/Names, Object Values, and Entries
 //? Looping Objects: Object Keys/Names, Object Values, and Entries
@@ -791,6 +830,10 @@ for (let [day, { open, close }] of entries) {
 
   console.log(`On ${day} we open at ${open} and close at ${close}`);
 }
+
+//! ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ - SECTION DIVIDER
+//! ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ - SECTION DIVIDER
+//! ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ - SECTION DIVIDER
 
 //? SETS - SETS - SETS
 //? SETS - SETS - SETS
@@ -886,6 +929,11 @@ console.log(
     .size
 );
 
+
+//! ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ - SECTION DIVIDER
+//! ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ - SECTION DIVIDER
+//! ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ - SECTION DIVIDER
+
 //? MAPS: Fundamentals
 //? MAPS: Fundamentals
 //? MAPS: Fundamentals
@@ -933,11 +981,337 @@ console.log(rest.get(time > rest.get('open') && time < rest.get('close')));
 
 //* 5 - Checking if a map contains a certain key using .has()
 //* 6 - Deleting a map value using .delete()
-//* 7 - CLEARING the map using .clear()
+//* 7 - SIZE of a map using .size()
+//* 8 - CLEARING the map using .clear()
 
 console.log(rest.has('categories'));
-console.log(rest.has(2));
-rest.delete(2);
-console.log(rest.has(2));
+// console.log(rest.has(2));
+// rest.delete(2);
+// console.log(rest.size);
+// console.log(rest.has(2));
 
-//* 8 - Setting map keys as arrays or objects.
+//* 9 - Setting map keys as arrays or objects.
+
+rest.set([1, 2], 'Test');
+console.log(rest);
+
+//% 9.1 - How would we get back value from a key that's an array, with 2 indices?
+
+console.log(rest.get([1, 2])); //! undefined. These two [1,2] arrays are not the same object in the heap.
+
+// % 9.2 - If we wanted to access the array we have to declare it first so the same heap object is referenced.
+
+//*  DOM values! yes, you can even put DOM values as keys in maps. These are very versatile with advanced JavaScript.
+
+rest.set(document.querySelector('h1'), 'Heading');
+console.log(rest);
+const arr = [1, 2];
+rest.set(arr, 'Test');
+console.log(rest.get(arr));
+
+//! ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ - SECTION DIVIDER
+//! ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ - SECTION DIVIDER
+//! ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ - SECTION DIVIDER
+
+//? MAPS - Iteration
+//? MAPS - Iteration
+//? MAPS - Iteration
+
+// Before we created an empty map, and used .set() to set key/values, which can be cumbersome...
+
+// This is a more detailed approach to creating and setting a map initially.
+
+//* Use arrays within arrays.
+const question = new Map([
+  ['question', 'What is the best programming language in the world?'],
+  [1, 'C'],
+  [2, 'Java'],
+  [3, 'JavaScript'],
+  ['correct', 3],
+  [true, 'You are correct!'],
+  [false, 'That is not correct'],
+]);
+console.log(question);
+// Similar to...
+console.log(Object.entries(openingHours));
+
+//* Convert object to Map. create a new map out of Object.entries()
+
+const hoursMap = new Map(Object.entries(openingHours));
+console.log(hoursMap);
+
+//* For of loop with a Map.
+//% QUIZ APP
+for (const [key, value] of question) {
+  // Destructure the question map into key:value pairs.
+  if (typeof key === 'number') console.log(`Answer ${key}: ${value}`);
+}
+
+// const answer = Number(prompt('Your answer')); // We need a a number to compare to a key.
+
+// console.log(
+//   answer === question.get('correct')
+//     ? `${question.get(true)}`
+//     : `${question.get(false)}`
+// );
+// //! - OR, use what you just learned.
+
+// console.log(question.get(question.get('correct') === answer)); //% (question.get('correct') === answer) = true, so 'You are correct!' is returned
+
+//* Converting a map back into an array.
+
+console.log([...question]); // The same as converting a set into an array, using spread.
+console.log([...question.entries()]);
+console.log([...question.keys()]);
+console.log([...question.values()]);
+
+//! ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ - SECTION DIVIDER
+//! ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ - SECTION DIVIDER
+//! ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ - SECTION DIVIDER
+
+//? Which Data structure to use?
+//? Which Data structure to use?
+//? Which Data structure to use?
+
+// Where data can come from
+//* 1 - From the program itself: Data written directly in source code (status messages)
+//* 2 - From the UI: Data input from the user or data written in DOM (tasks in todo app)
+//* 3 - From External Sources: Data fetched for exampel from web API (Application Programming Interface)
+
+//* Array or Sets
+// If we need a simple list.
+//* Arrays:
+// When you need to know/track the order
+// When you need/have duplicates.
+// When you need to manipulate the data.
+//* Sets: Only when using unique values.
+// When high performance is very important. (up to 10x faster compared to arrays!!)
+// Used to remove duplicates from arrays.
+
+const tasks = ['Code', 'Study', 'Practice']; // ['Code', 'Study', 'Practice']
+
+const tasks1 = new Set(['Code', 'Code', 'Code', 'rest']); // {'Code', 'rest'}
+
+//* Objects or Maps
+// If we need key/value pairs, or, a way of describing the values.
+// Objects are the traditional way (because no maps before ES6).
+
+//* Objects:
+// Easier to write and access values with . and []
+// Use when you need to include functions (methods)
+// Use when working with JSON (You can convert easily to map once done)
+const tasks2 = {
+  task: 'Code',
+  date: 'Today',
+  repeat: true,
+};
+
+//* Maps:
+// Maps offer way better performance, can have any data type, and are easy to iterate, and compute the size.
+// It's very easy to write object using dot notation or the {}s
+const tasks3 = new Map([
+  ['task', 'Code'],
+  ['date', 'Today'],
+  [false, 'Start coding!'],
+]);
+
+//* Data from APIs, or external sources, generally come in the form of JSON data.
+//# For example.
+// {
+//   "employee": {
+//       "name": {
+//            "firstName": "sonoo",
+//            "lastName": "wriggby"
+//        }
+//       "salary": 56000,
+//       "married": true
+//   }
+// }
+*/
+//! ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ - SECTION DIVIDER
+//! ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ - SECTION DIVIDER
+//! ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ - SECTION DIVIDER
+
+//? STRINGS --- PART 1
+//? STRINGS --- PART 1
+//? STRINGS --- PART 1
+
+const airline = 'TAP Air Portugal';
+const plane = 'A320';
+
+const planeIndexAt0 = plane[0];
+const planeIndexAt5 = plane[5];
+console.log(planeIndexAt0);
+console.log(planeIndexAt5);
+console.log('B737'[0]);
+
+console.log(airline.length);
+console.log('B434'.length);
+
+//* Strings have very similar methods to arrays
+
+console.log(airline.indexOf('r'));
+console.log(plane.indexOf(5)); // -1 is returned if it does not contain the requested index.
+
+// Getting the last index of a parameter passed to lastIndexOf() function.
+
+console.log(airline.lastIndexOf('r'));
+console.log(airline.lastIndexOf('Portugal'));
+console.log(airline.lastIndexOf('portugal')); //% lastIndexOf is case sensitive.
+
+//* Slice Method
+// The passed index is where the start of the slice begins.
+// A new 'Substring' is returned, which does not change the original string, which cannot change.
+console.log(airline.slice(4));
+
+//* To specify an end parameter, pass a 2nd parameter
+
+console.log(airline.slice(4, 7)); // Output: Air // 'TAP ', 0-3, and ' Portugal', 7  -> end of array, are being removed. So, the 1st parameter is where to start and 2nd is where to end the slice.
+
+// CHALLENGE
+//% Let's try to extract just the 1st word without knowing any of the indexes.
+
+function findFirstWord(word) {
+  const spacedIndex = word.indexOf(' ');
+  const returnWord = word.slice(0, spacedIndex); // Start with 0, slice up to spacedIndex
+  console.log(returnWord);
+  return returnWord;
+}
+findFirstWord('this is it');
+
+//! - OR - Using .lastIndexOf with slice and 0 parameters will return up to whatever character you include, so a ''
+
+console.log(airline.slice(0, airline.indexOf(' ')));
+console.log(airline.slice(airline.lastIndexOf(' ') + 1)); // + 1 removes the space
+
+//* There's even more we can do with slice!
+
+// Negative starting argument will reverse the staring index location
+console.log(airline.slice(-2));
+// Negative value to define "slice up to" parameter
+console.log(airline.slice(1, -1)); // start at 1, slice up to the index -1 (last digit)
+
+//CHALLENGE - Check Middle Seat.
+
+const checkMiddleSeat = function (seat) {
+  // B and E are middle seats
+  const s = seat.slice(-1); //% Putting the last index of the string into s.
+  console.log(
+    s === 'B' || s === 'E'
+      ? `Seat ${seat} is a middle seat :(`
+      : `Seat ${seat} is not a middle seat :D`
+  );
+};
+
+checkMiddleSeat('11B');
+checkMiddleSeat('23C');
+checkMiddleSeat('3E');
+
+//* Whenever we call a method on a string, JavaScript behind-the-scenes convert that string primitive to a string OBJECT with the same content, then that object has the methods called on it.
+console.log(typeof new String('Joel'));
+
+//* It is THEN turned back into a string primitive
+console.log(typeof new String('Joel').slice(1));
+
+//* Boxing - Taking a string and putting into a 'boxed' object.
+// This is what make a string iterable.
+console.log(new String('Joel'));
+
+//? STRINGS --- PART 2
+//? STRINGS --- PART 2
+//? STRINGS --- PART 2
+
+console.log(airline.toLocaleLowerCase());
+console.log(airline.toUpperCase());
+console.log('Malarky!'.toUpperCase());
+
+// Fixing a passengers name so that the 1s letter is uppercase, and the rest is lowercase.
+
+const passenger = 'jOEl';
+const passengerLower = passenger.toLocaleLowerCase();
+const passengerCorrect =
+  passengerLower[0].toUpperCase() + passengerLower.slice(1);
+console.log(passengerCorrect);
+
+function correctedName(name) {
+  const nameLower = name.toLocaleLowerCase();
+  const correctName = nameLower[0].toUpperCase() + nameLower.slice(1);
+  console.log(correctName);
+}
+
+correctedName('dONNA');
+
+//* Comparing Emails
+
+const email = 'Hello@Joel.io';
+const loginEmail = ' hEl  lO!Jo el.Io \n';
+
+function compareEmails(email1, email2) {
+  //% .trim() to remove '\n' from input.
+  function trimEmail(email) {
+    email = email.toLowerCase().replaceAll(' ', '').trim();
+    return email;
+  }
+  const email1check = trimEmail(email1);
+  const email2check = trimEmail(email2);
+  console.log(
+    email1check === email2check
+      ? `${email1check} matches ${email2check}`
+      : `${email1check} does not match ${email2check}. Please try again`
+  );
+}
+
+compareEmails('  ToM \n \n \n', ' t O m \n \n');
+compareEmails('JoelfuellinG@gMail.com \n \n \n', 'JoelFuelling@gmail.co');
+
+//* REPLACING parts of strings.
+
+const priceORD = '$474.90';
+const priceLON = priceORD.replace('$', '￡').replace('.', ',');
+priceLON;
+
+// Replacing all of an element
+const announcement =
+  'All passengers come to boarding door 23. Boarding door 23!';
+console.log(announcement.replaceAll('door', 'gate'));
+
+//! Without replaceAll, we have to use a Regex Expression / /
+// Putting a g after it makes it global.
+console.log(announcement.replace(/door/g, 'gate'));
+
+//* Three simple methods that return booleans
+
+// includes, startswith, and endswith
+
+const planex = 'A320neo';
+const planey = 'A331beta';
+console.log(plane.includes('A320'));
+console.log(plane.startsWith('A' || 'B' || 'Z'));
+
+function checkPlane(plane) {
+  if ((plane.startsWith('A') && plane.endsWith('o')) || plane.endsWith('a')) {
+    console.log(
+      `The ${plane} is part of the ${
+        plane.includes('n') ? 'neo' : 'beta'
+      } plane family`
+    );
+  }
+}
+checkPlane(planex);
+checkPlane(planey);
+
+// CHALLENGE
+// Allowing passengers (or not) based on their luggage.
+
+const checkBaggage = function (items) {
+  const baggage = items.toLowerCase();
+  if (baggage.includes('knife') || baggage.includes('gun')) {
+    console.log('You are not allowed on board');
+  } else {
+    console.log('Welcome aboard!');
+  }
+};
+
+checkBaggage('I have a laptop, some food and a pocket knife');
+checkBaggage('Socks and camera');
+checkBaggage('I have some snacks and a gun for safety');
