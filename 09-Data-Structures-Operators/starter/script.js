@@ -12,10 +12,6 @@
 //! ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ - SECTION DIVIDER
 //! ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ - SECTION DIVIDER
 
-// Data needed for a later exercise
-const flights =
-  '_Delayed_Departure;fao93766109;txl2133758440;11:25+_Arrival;bru0943384722;fao93766109;11:45+_Delayed_Arrival;hel7439299980;fao93766109;12:05+_Departure;fao93766109;lis2323639855;12:30';
-
 //* A NEW array with all the weekdays - Used below around line 730
 const weekdays = ['mon', 'tues', 'wed', 'thu', 'fri', 'sat', 'sun'];
 
@@ -280,7 +276,7 @@ console.log(oh, ch); // 7,8
 // Similar to destructuring, except...
 //% it takes all the elements from the iterable, and DOES NOT create new variables.
 // Can be used on ANY iterable items (and objects, though they are "non-iterable")
-//% Array, String, Maps, Sets, (others for later)
+//% Array, String, s, Sets, (others for later)
 
 // The regular way of adding to parts of an array to another, an array literal.
 const spreadArr = [7, 9, 12];
@@ -934,19 +930,19 @@ console.log(
 //! ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ - SECTION DIVIDER
 //! ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ - SECTION DIVIDER
 
-//? MAPS: Fundamentals
-//? MAPS: Fundamentals
-//? MAPS: Fundamentals
+//? S: Fundamentals
+//? S: Fundamentals
+//? S: Fundamentals
 
-// Data structure we can use to map values to keys.
-// Data is stores in key value pairs - //% BUT the keys can be any types in maps!
+// Data structure we can use to  values to keys.
+// Data is stores in key value pairs - //% BUT the keys can be any types in s!
 //# In objects, the keys can obly be strings.
 //* A lot more useful than sets!
 
-//* 1 - Creating a new Map (empty to start)
-const rest = new Map();
+//* 1 - Creating a new  (empty to start)
+const rest = new ();
 
-//* 2 - To add/set key/value pairs in the Map...
+//* 2 - To add/set key/value pairs in the ...
 // 1 - Pass in two arguments to the .set() function, the 1st being the name/type ('name'), the 2nd being the value ('Classico').
 rest.set('name', 'Classico'); // Similar to .add() method from sets. //% STRING type
 
@@ -957,7 +953,7 @@ rest.set(2, 'Lisbon, Portugal');
 console.log(rest);
 console.log(rest.set(3, 'SanFran, California'));
 
-//* 3 - The .set() method returns the updated map, which allows us to chain the .set() method...
+//* 3 - The .set() method returns the updated , which allows us to chain the .set() method...
 
 rest
   .set('categories', ['Italian', 'Pizzeria', 'Vegetarian', 'Organic']) //% ARRAY type
@@ -967,7 +963,7 @@ rest
   .set(false, 'We are closed');
 console.log(rest);
 
-//* 4 - To retreive data from maps we use the .get() method.
+//* 4 - To retreive data from s we use the .get() method.
 
 console.log(rest.get('name'));
 console.log(rest.get(true));
@@ -976,13 +972,13 @@ console.log(rest.get('1')); // undefined
 //* let's play around with some of the values!
 
 const time = 21;
-// Below, 'true' is returned from rest.get(), so 'We are open!' is returned. //! Clever, but not readable. This is meant to show the power of boolean in map keys.
+// Below, 'true' is returned from rest.get(), so 'We are open!' is returned. //! Clever, but not readable. This is meant to show the power of boolean in  keys.
 console.log(rest.get(time > rest.get('open') && time < rest.get('close')));
 
-//* 5 - Checking if a map contains a certain key using .has()
-//* 6 - Deleting a map value using .delete()
-//* 7 - SIZE of a map using .size()
-//* 8 - CLEARING the map using .clear()
+//* 5 - Checking if a  contains a certain key using .has()
+//* 6 - Deleting a  value using .delete()
+//* 7 - SIZE of a  using .size()
+//* 8 - CLEARING the  using .clear()
 
 console.log(rest.has('categories'));
 // console.log(rest.has(2));
@@ -990,7 +986,7 @@ console.log(rest.has('categories'));
 // console.log(rest.size);
 // console.log(rest.has(2));
 
-//* 9 - Setting map keys as arrays or objects.
+//* 9 - Setting  keys as arrays or objects.
 
 rest.set([1, 2], 'Test');
 console.log(rest);
@@ -1001,7 +997,7 @@ console.log(rest.get([1, 2])); //! undefined. These two [1,2] arrays are not the
 
 // % 9.2 - If we wanted to access the array we have to declare it first so the same heap object is referenced.
 
-//*  DOM values! yes, you can even put DOM values as keys in maps. These are very versatile with advanced JavaScript.
+//*  DOM values! yes, you can even put DOM values as keys in s. These are very versatile with advanced JavaScript.
 
 rest.set(document.querySelector('h1'), 'Heading');
 console.log(rest);
@@ -1013,16 +1009,16 @@ console.log(rest.get(arr));
 //! ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ - SECTION DIVIDER
 //! ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ - SECTION DIVIDER
 
-//? MAPS - Iteration
-//? MAPS - Iteration
-//? MAPS - Iteration
+//? S - Iteration
+//? S - Iteration
+//? S - Iteration
 
-// Before we created an empty map, and used .set() to set key/values, which can be cumbersome...
+// Before we created an empty , and used .set() to set key/values, which can be cumbersome...
 
-// This is a more detailed approach to creating and setting a map initially.
+// This is a more detailed approach to creating and setting a  initially.
 
 //* Use arrays within arrays.
-const question = new Map([
+const question = new ([
   ['question', 'What is the best programming language in the world?'],
   [1, 'C'],
   [2, 'Java'],
@@ -1035,15 +1031,15 @@ console.log(question);
 // Similar to...
 console.log(Object.entries(openingHours));
 
-//* Convert object to Map. create a new map out of Object.entries()
+//* Convert object to . create a new  out of Object.entries()
 
-const hoursMap = new Map(Object.entries(openingHours));
-console.log(hoursMap);
+const hours = new (Object.entries(openingHours));
+console.log(hours);
 
-//* For of loop with a Map.
+//* For of loop with a .
 //% QUIZ APP
 for (const [key, value] of question) {
-  // Destructure the question map into key:value pairs.
+  // Destructure the question  into key:value pairs.
   if (typeof key === 'number') console.log(`Answer ${key}: ${value}`);
 }
 
@@ -1058,7 +1054,7 @@ for (const [key, value] of question) {
 
 // console.log(question.get(question.get('correct') === answer)); //% (question.get('correct') === answer) = true, so 'You are correct!' is returned
 
-//* Converting a map back into an array.
+//* Converting a  back into an array.
 
 console.log([...question]); // The same as converting a set into an array, using spread.
 console.log([...question.entries()]);
@@ -1092,24 +1088,24 @@ const tasks = ['Code', 'Study', 'Practice']; // ['Code', 'Study', 'Practice']
 
 const tasks1 = new Set(['Code', 'Code', 'Code', 'rest']); // {'Code', 'rest'}
 
-//* Objects or Maps
+//* Objects or s
 // If we need key/value pairs, or, a way of describing the values.
-// Objects are the traditional way (because no maps before ES6).
+// Objects are the traditional way (because no s before ES6).
 
 //* Objects:
 // Easier to write and access values with . and []
 // Use when you need to include functions (methods)
-// Use when working with JSON (You can convert easily to map once done)
+// Use when working with JSON (You can convert easily to  once done)
 const tasks2 = {
   task: 'Code',
   date: 'Today',
   repeat: true,
 };
 
-//* Maps:
-// Maps offer way better performance, can have any data type, and are easy to iterate, and compute the size.
+//* s:
+// s offer way better performance, can have any data type, and are easy to iterate, and compute the size.
 // It's very easy to write object using dot notation or the {}s
-const tasks3 = new Map([
+const tasks3 = new ([
   ['task', 'Code'],
   ['date', 'Today'],
   [false, 'Start coding!'],
@@ -1127,7 +1123,7 @@ const tasks3 = new Map([
 //       "married": true
 //   }
 // }
-*/
+
 //! ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ - SECTION DIVIDER
 //! ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ - SECTION DIVIDER
 //! ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ - SECTION DIVIDER
@@ -1150,14 +1146,16 @@ console.log('B434'.length);
 
 //* Strings have very similar methods to arrays
 
-console.log(airline.indexOf('r'));
-console.log(plane.indexOf(5)); // -1 is returned if it does not contain the requested index.
+//* .indexOf(), and .lastIndexOf()
+// Both are case sensitive.
 
-// Getting the last index of a parameter passed to lastIndexOf() function.
+console.log(airline.indexOf('r'));
+console.log(plane.indexOf(0)); // -1 is returned if it does not contain the requested index.
 
 console.log(airline.lastIndexOf('r'));
+//% Can search for entire strings, not just characters.
 console.log(airline.lastIndexOf('Portugal'));
-console.log(airline.lastIndexOf('portugal')); //% lastIndexOf is case sensitive.
+console.log(airline.lastIndexOf('portugal'));
 
 //* Slice Method
 // The passed index is where the start of the slice begins.
@@ -1217,6 +1215,10 @@ console.log(typeof new String('Joel').slice(1));
 // This is what make a string iterable.
 console.log(new String('Joel'));
 
+//! ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ - SECTION DIVIDER
+//! ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ - SECTION DIVIDER
+//! ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ - SECTION DIVIDER
+
 //? STRINGS --- PART 2
 //? STRINGS --- PART 2
 //? STRINGS --- PART 2
@@ -1227,19 +1229,19 @@ console.log('Malarky!'.toUpperCase());
 
 // Fixing a passengers name so that the 1s letter is uppercase, and the rest is lowercase.
 
-const passenger = 'jOEl';
-const passengerLower = passenger.toLocaleLowerCase();
-const passengerCorrect =
-  passengerLower[0].toUpperCase() + passengerLower.slice(1);
-console.log(passengerCorrect);
+let passenger = 'joHNsoN';
+const passengerLower = passenger[0].toUpperCase();
+const correctedPassenger = passengerLower + passenger.slice(1).toLowerCase();
+console.log(correctedPassenger);
 
-function correctedName(name) {
-  const nameLower = name.toLocaleLowerCase();
-  const correctName = nameLower[0].toUpperCase() + nameLower.slice(1);
-  console.log(correctName);
+function formatName(str) {
+  str = str.replaceAll(' ', '');
+  let firstLetter = str[0].toUpperCase();
+  let restOfName = str.slice(1).toLowerCase();
+  let formattedName = firstLetter + restOfName;
+  return formattedName;
 }
-
-correctedName('dONNA');
+console.log(formatName(' catHERine '));
 
 //* Comparing Emails
 
@@ -1257,7 +1259,7 @@ function compareEmails(email1, email2) {
   console.log(
     email1check === email2check
       ? `${email1check} matches ${email2check}`
-      : `${email1check} does not match ${email2check}. Please try again`
+      : `${email1check} doesn't match ${email2check}. Please try again`
   );
 }
 
@@ -1265,7 +1267,6 @@ compareEmails('  ToM \n \n \n', ' t O m \n \n');
 compareEmails('JoelfuellinG@gMail.com \n \n \n', 'JoelFuelling@gmail.co');
 
 //* REPLACING parts of strings.
-
 const priceORD = '$474.90';
 const priceLON = priceORD.replace('$', '￡').replace('.', ',');
 priceLON;
@@ -1275,9 +1276,21 @@ const announcement =
   'All passengers come to boarding door 23. Boarding door 23!';
 console.log(announcement.replaceAll('door', 'gate'));
 
-//! Without replaceAll, we have to use a Regex Expression / /
-// Putting a g after it makes it global.
+//% Without replaceAll, we have to use a Regex Expression / /
+// Putting a g flag after the regex makes it global.
 console.log(announcement.replace(/door/g, 'gate'));
+
+//! RealWorld example of URL cleaning, using .replace(), Regex, and Ojbects as function inputs with default booleans for values.
+
+const presentableUrl = (
+  fullUrl,
+  { removeProtocol = true, removeWww = true } = {}
+) =>
+  fullUrl
+    .replace(/(https?:\/\/)/i, removeProtocol ? '' : '$1')
+    .replace(/(www\.)/i, removeWww ? '' : '$1');
+
+console.log(presentableUrl('https://www.openai.com/gpt-4'));
 
 //* Three simple methods that return booleans
 
@@ -1315,3 +1328,105 @@ const checkBaggage = function (items) {
 checkBaggage('I have a laptop, some food and a pocket knife');
 checkBaggage('Socks and camera');
 checkBaggage('I have some snacks and a gun for safety');
+
+//! ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ - SECTION DIVIDER
+//! ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ - SECTION DIVIDER
+//! ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ ▻ - SECTION DIVIDER
+
+//? STRINGS --- Part 3
+//? STRINGS --- Part 3
+//? STRINGS --- Part 3
+
+//* Split - Allows us to split a string into multiple parts based on a divider string.
+
+console.log('a+very+nice+string'.split('+'));
+
+// '' as the divider string will split each character of the string into an array, including spaces
+console.log('a very nice string'.split(''));
+console.log('Another nice string, Joel!'.split(', ')); // Similar to + above
+
+//* Destructuring a string after splitting
+const [firstName, lastName] = 'joel fuelling'.split(' ');
+
+//* Using .join()
+// .join() creates a string from an array with a selected divider strin between each addition
+// Let's make the last name uppercase, as well as adding a 'Mr.' in the beginning.
+const newName = [
+  'Mr.',
+  firstName[0].toUpperCase() + firstName.slice(1),
+  lastName[0].toUpperCase() + lastName.slice(1),
+].join(' ');
+console.log(newName);
+
+// Below, we're putting 3 strings into an array, then using .join('') on the array to create 1 string with all items from the array, adding a space between them.
+//% Using what we learned earlier, we also manipulate the string output using a function.
+
+function capital(names) {
+  const nameSplit = names.split(' ');
+  const namesUpper = [];
+  for (const n of nameSplit) {
+    namesUpper.push(n[0].toUpperCase() + n.slice(1).toLowerCase());
+  }
+  console.log(namesUpper.join(' '));
+}
+capital('jOEL fUELLING');
+
+//* Padding a string - Adding a certain number of characters to the Start or End of string until it has a desired length.
+
+// The 1st parameter is the length the string will end up, the 2nd is the character to use.
+const message = 'Go to gate 23!';
+console.log(message.padStart(25, '+'));
+console.log('Joel'.padEnd(12, '+'));
+
+console.log('Example String'.padStart(20, '~').padEnd(25, 'S'));
+
+//! REAL WORLD EXAMPLE
+
+// Masking credit card numbers.
+const ccNumber = 4441555266637774;
+
+function maskCreditCard(number) {
+  const str = number + ''; // When one of the + sign operands is a string, the result will be converted to a string.
+  const last = str.slice(-4); // Returning the last 4 characters
+  return last.padStart(str.length, '*'); // Return 'last' with padding equal to the str.slice(-4) of * added at the start until it reaches str.length
+}
+
+console.log(maskCreditCard(ccNumber));
+
+//* Repeat function - Allows us to repeate a string multiple times.
+
+// Bad weather at an airport.
+const message2 = 'Bad weather ~!!!~ All departures delayed ~!!!~ ';
+console.log(message2.repeat(3));
+
+const planesInLine = function (n) {
+  console.log(`There are ${n} planes in line ${'✈️'.repeat(n)}`);
+};
+planesInLine(4);
+planesInLine(2);
+planesInLine(20);
+*/
+//? STRINGS METHODS PRACTICE
+//? STRINGS METHODS PRACTICE
+//? STRINGS METHODS PRACTICE
+
+const flights =
+  '_Delayed_Departure;fao93766109;txl2133758440;11:25+_Arrival;bru0943384722;fao93766109;11:45+_Delayed_Arrival;hel7439299980;fao93766109;12:05+_Departure;fao93766109;lis2323639855;12:30';
+
+const formatToAndFrom = str => str.replace(/\d?/g, '').toUpperCase();
+
+function formatFlights() {
+  let flightsList = flights.split('+');
+  for (let f of flightsList) {
+    flightsList = f.split(';');
+    let [status, departedFrom, arrivingAt, time] = flightsList;
+    status = status.replace(/_/g, ' ');
+    const formattedFlights = `${
+      status.startsWith(' Delayed') ? '🔴' : ''
+    } ${status} from ${formatToAndFrom(departedFrom)} to ${formatToAndFrom(
+      arrivingAt
+    )} at (${time.replace(/\:/g, 'h')})`.padStart(50);
+    console.log(formattedFlights);
+  }
+}
+formatFlights(flights);

@@ -34,6 +34,7 @@ const account4 = {
 };
 
 const accounts = [account1, account2, account3, account4];
+// Very common way of organizing Js data, an array of objects.
 
 // Elements
 const labelWelcome = document.querySelector('.welcome');
@@ -61,16 +62,40 @@ const inputLoanAmount = document.querySelector('.form__input--loan-amount');
 const inputCloseUsername = document.querySelector('.form__input--user');
 const inputClosePin = document.querySelector('.form__input--pin');
 
-/////////////////////////////////////////////////
-/////////////////////////////////////////////////
-// LECTURES
+//1 - For each movement, we want 1 element shown on the page.
 
-const currencies = new Map([
-  ['USD', 'United States dollar'],
-  ['EUR', 'Euro'],
-  ['GBP', 'Pound sterling'],
-]);
+//% The insertAdjacentHTML() method - https://developer.mozilla.org/en-US/docs/Web/API/Element/insertAdjacentHTML
+// Does not reparse the element it is being used on (containerMovements), and thus it does not corrupt the existing elements inside that element. This avoids the extra step of serialization, making it MUCH FASTER than direct innerHTML manipulation.
+//    <!-- beforebegin -->
+//    <p>
+//      <!-- afterbegin -->
+//      foo
+//      <!-- beforeend -->
+//    </p>
+//    <!-- afterend -->
 
-const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+// innerHTML vs. innerText - Well, HTML includes all the HTML elements including the text, where as innerText is just the text.
 
-/////////////////////////////////////////////////
+const displayMovements = function (movements) {
+  // First empty the container of its default stuff.
+
+  containerMovements.innerHTML = ''; // HTML returns all the HTML tags along with the text. We're using it as a setter here.
+  movements.forEach(function (mov, i) {
+    const type = mov > 0 ? 'deposit' : 'withdrawal';
+    const html = `
+    <div class="movements__row">
+    <div class="movements__type movements__type--${type}">
+      ${i + 1}
+    </div>
+    <div class="movements__date">24/01/2037</div>
+    <div class="movements__value">${mov}</div>
+    </div>
+  `;
+
+    containerMovements.insertAdjacentHTML('afterbegin', html); // This accepts 2 arguments. The 1st is the position in which we want to attach the HTML, the 2nd is ACTUAL HTML CONTENT we want to insert.
+  });
+};
+displayMovements(account1.movements);
+
+// afterbegin - new elements, will appear BEFORE the previously existing elments
+// beforeend - new elements will appear AFTER... You can see why afterbegin is preferable.
