@@ -8,7 +8,7 @@
 const account1 = {
   owner: 'Jonas Schmedtmann',
   movements: [200, 450, -400, 3000, -650, -130, 70, 1300],
-  interestRate: 1.2, // %
+  interestRate: 1.2,
   pin: 1111,
 };
 
@@ -34,6 +34,7 @@ const account4 = {
 };
 
 const accounts = [account1, account2, account3, account4];
+
 // Very common way of organizing Js data, an array of objects.
 
 // Elements
@@ -91,11 +92,44 @@ const displayMovements = function (movements) {
     <div class="movements__value">${mov}</div>
     </div>
   `;
-
     containerMovements.insertAdjacentHTML('afterbegin', html); // This accepts 2 arguments. The 1st is the position in which we want to attach the HTML, the 2nd is ACTUAL HTML CONTENT we want to insert.
   });
 };
 displayMovements(account1.movements);
 
+// Receive the movements as an input, an returns a balance based on the movements array.
+// Set the DOM element text content to the reduced account balance
+const calcDisplayBalance = function (movements) {
+  const balance = movements.reduce((acc, mov, i, arr) => (acc += mov), 0);
+  labelBalance.textContent = `${balance} USD`;
+};
+calcDisplayBalance(account1.movements);
+
 // afterbegin - new elements, will appear BEFORE the previously existing elments
 // beforeend - new elements will appear AFTER... You can see why afterbegin is preferable.
+
+//* We want to get the initials of ALL users names in lowercase into a the accounts array.
+
+//# My coded version. it works, but it doesn't create the username forEach and add it to each object like Jonas did, which is super DRY.
+// const createUserInitialsArray = accounts.map((user, i) => {
+//   let accounts = user.owner.toLowerCase().split(' ');
+//   accounts.forEach((n, i) => {
+//     accounts[i] = n[0];
+//   });
+//   accounts = accounts.join('');
+//   return accounts;
+// });
+// console.log(createUserInitialsArray); // ['js', 'jd', 'stw', 'ss']
+
+//# Jonas/code along version
+// Here, we're not returning anything, we're creating a "Side Effeect" to happen to the original accounts array, adding the username to each.
+const createUserNames = function (accs) {
+  accs.forEach(function (acc) {
+    acc.username = acc.owner
+      .toLowerCase()
+      .split(' ')
+      .map(name => name[0]) //% returning each 'name' as the first letter [0] of each name with map.
+      .join('');
+  });
+};
+createUserNames(accounts);
