@@ -5,8 +5,6 @@ const modal = document.querySelector('.modal');
 const overlay = document.querySelector('.overlay');
 const btnCloseModal = document.querySelector('.close-modal');
 
-// Collect ALL 3 buttons in one variable using querySelectorAll.
-// Restructuring the code without changing the functionality. Below, we can open and close in 2 ways, in one function, and interact with all butson, in one loop
 let btnsOpenModal = document.querySelectorAll('.show-modal');
 
 const openModal = function () {
@@ -32,3 +30,30 @@ document.addEventListener('keydown', function (e) {
     closeModal();
   }
 });
+
+//? KEY TAKE AWAYS for basic multi-element DOM manipulation.
+
+// Each class function like a container with lots of properties in it.
+//* querySelectorAll is used for loops/muliples of the same modal, element, etc.
+//* Classes allow us to aggregate CSS properties so we can turn all of the properties on/off at once with .classList.remove/add (or .toggle). This is how DOM manipulation works at a basic level for most of JavaScript.
+
+/*
+<button class="show-modal">Show modal 1</button>
+    <button class="show-modal">Show modal 2</button>
+    <button class="show-modal">Show modal 3</button>
+
+    <div class="modal hidden">
+      <button class="close-modal">&times;</button>
+      <h1>I'm a modal window</h1>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+        veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+        commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
+        velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
+        occaecat cupidatat non proident, sunt in culpa qui officia deserunt
+        mollit anim id est laborum.
+      </p>
+    </div>
+    <div class="overlay hidden"></div>
+*/
