@@ -80,7 +80,6 @@ const inputClosePin = document.querySelector('.form__input--pin');
 const displayMovements = function (movements) {
   // First empty the container of its default stuff.
 
-  containerMovements.innerHTML = ''; // HTML returns all the HTML tags along with the text. We're using it as a setter here.
   movements.forEach(function (mov, i) {
     const type = mov > 0 ? 'deposit' : 'withdrawal';
     const html = `
@@ -89,28 +88,47 @@ const displayMovements = function (movements) {
       ${i + 1}
     </div>
     <div class="movements__date">24/01/2037</div>
-    <div class="movements__value">${mov}</div>
+    <div class="movements__value">${mov}$</div>
     </div>
   `;
     containerMovements.insertAdjacentHTML('afterbegin', html); // This accepts 2 arguments. The 1st is the position in which we want to attach the HTML, the 2nd is ACTUAL HTML CONTENT we want to insert.
   });
 };
-displayMovements(account1.movements);
 
-// Receive the movements as an input, an returns a balance based on the movements array.
+
+// Receive the movements as an input, and returns a balance based on the movements array.
 // Set the DOM element text content to the reduced account balance
-const calcDisplayBalance = function (movements) {
-  const balance = movements.reduce((acc, mov, i, arr) => (acc += mov), 0);
-  labelBalance.textContent = `${balance} USD`;
+const calcDisplayBalance = function (acc) {
+  acc.balance = acc.movements.reduce((acc, mov, i, arr) => (acc += mov), 0);
+  labelBalance.textContent = `${acc.balance} USD`;
 };
-calcDisplayBalance(account1.movements);
+
+
+const calcDisplaySummary = function(acc) {
+  const deposits = acc.movements.filter((move) => move > 0).reduce((acc,cur) => acc + cur)
+  labelSumIn.textContent = `${deposits}$`
+  const withdrawals = acc.movements.filter((move) => move < 0).reduce((acc,cur) => acc + cur)
+  labelSumOut.textContent = `${Math.abs(withdrawals)}$`
+  
+  // 1.2% of deposits are paid as interest! But, the bank only pays if it is at least 1.
+  const interest = acc.movements.filter(
+    (move) => move > 0
+    ).map(
+      (move) => (move * acc.interestRate)/100
+      ).filter(
+        (int) => int > 1
+        ).reduce(
+          (move,int) => move + int,0)
+  labelSumInterest.textContent = `${interest}$`
+}
+
 
 // afterbegin - new elements, will appear BEFORE the previously existing elments
 // beforeend - new elements will appear AFTER... You can see why afterbegin is preferable.
 
 //* We want to get the initials of ALL users names in lowercase into a the accounts array.
 
-//# My coded version. it works, but it doesn't create the username forEach and add it to each object like Jonas did, which is super DRY.
+//# My coded version. it works, but it doesn't create the username forEach and add it to each object like Jonas did.
 // const createUserInitialsArray = accounts.map((user, i) => {
 //   let accounts = user.owner.toLowerCase().split(' ');
 //   accounts.forEach((n, i) => {
@@ -133,3 +151,54 @@ const createUserNames = function (accs) {
   });
 };
 createUserNames(accounts);
+
+const updateUI = function(acc) {
+    // Display and calulcate balance
+    calcDisplayBalance(acc);
+    // summary
+    calcDisplaySummary(acc)
+    // movements
+    displayMovements(acc.movements);
+}
+
+// Event Handlers
+
+
+//* Save the user variable outside the function to use it for other actions, like transferring money
+let currentAccount
+
+btnTransfer.addEventListener('click', function(e) {
+  e.preventDefault()
+  const transferAmount = Number(inputTransferAmount.value)
+  const receiverAccount = accounts.find(acc => acc.username === inputTransferTo.value)
+  receiverAccount.movements.push(transferAmount)
+  // Check if the amount of the input field is greater or less than the current users available funds, and if the 'to' account exists and is not the current user
+  if (transferAmount > 0 && // Greater than 0?
+    receiverAccount && // Does the receiveR exist?
+    currentAccount.balance >= transferAmount && // Does the current account have enough funds to transfer?
+    receiverAccount?.username !== currentAccount.username) { // Is the receiver different from the current user?
+      // Performing the transfer
+      currentAccount.movements.push(-transferAmount)
+      receiverAccount.movements.push(transferAmount)
+  }
+  updateUI(currentAccount)
+  inputTransferAmount.value = inputTransferTo.value = ''
+})
+// const inputTransferTo = document.querySelector('.form__input--to');
+// const inputTransferAmount = document.querySelector('.form__input--amount');
+
+btnLogin.addEventListener('click', function(e) {
+  // prevent form from submitting.
+  e.preventDefault()
+  currentAccount = accounts.find(acc => acc.username === inputLoginUsername.value.toLowerCase())
+  // Use Optional Chaining to check for the pin, only if the currentAccount exists.
+  currentAccount?.pin === Number(inputLoginPin.value)
+  // Display UI and welcome message
+  labelWelcome.textContent = `Welcome back, ${currentAccount.owner.split(' ')[0]}`
+  containerApp.style.opacity = 100
+  // Clear Input Fields
+  inputLoginUsername.value = inputLoginPin.value = ''
+  inputLoginPin.blur()
+
+  updateUI(currentAccount)
+})
